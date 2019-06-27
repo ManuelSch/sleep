@@ -1,0 +1,31 @@
+{
+    "name": "@manuelsch/sleep",
+    "version": "1.0.0",
+    "description": "A simple, Promise-based sleep function for TypeScript applications",
+    "author": "manuelsch",
+    "license": "MIT",
+    "keywords": [
+        "sleep",
+        "promise",
+        "async",
+        "await"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ManuelSch/sleep.git"
+    },
+    "files": [
+        "dist",
+        "types"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "pre-publish": "npm run build && (for %i in (manuelsch-sleep*.tgz) do (del %i)) && npm pack && (if exist \"./package\" rmdir \"./package\" /s /q) && (for %i in (manuelsch-sleep*.tgz) do (tar -xzf %i)) && (for %i in (manuelsch-sleep*.tgz) do (del %i))",
+        "publish": "npm publish --access public"
+    },
+    "devDependencies": {
+        "typescript": "^3.5.2"
+    }
+}
